@@ -48,7 +48,7 @@ const columns = [
 let rows = [];
 
 
-class Netconfig extends Component {
+class Netconfig_copy extends Component {
 
   constructor(props) {
     super(props);
@@ -274,4 +274,4 @@ class Netconfig extends Component {
   }
 }
 
-export default withStyles(styles)(Netconfig);
+export default withStyles(styles)(Netconfig_copy);

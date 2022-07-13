@@ -9,6 +9,7 @@ import Netconfig from "./routes/netconfig";
 import Dataset from "./routes/dataset";
 import Netconfig_copy from './routes/netconfig_copy.jsx';
 import Labeling from './routes/labeling';
+import Labeling_copy from './routes/labeling_copy';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,6 +20,7 @@ root.render(
       <Route path='netconfig_copy' element={<Netconfig_copy />} />
       <Route path='dataset' element={<Dataset />} />
       <Route path='labeling' element={<Labeling />} />
+      <Route path='labeling_copy' element={<Labeling_copy />} />
     </Routes>
   </BrowserRouter>
 );

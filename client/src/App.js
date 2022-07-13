@@ -33,7 +33,8 @@ function App() {
         <Link to="/dataset">Dataset</Link> |{" "}
         <Link to="/netconfig">Netconfig</Link> |{" "} 
         <Link to="/netconfig_copy">Netconfig_copy</Link> |{" "} 
-        <Link to="/labeling">Labeling</Link>
+        <Link to="/labeling">Labeling</Link> |{" "} 
+        <Link to="/labeling_copy">Labeling_copy</Link>
       </nav>
 
       <button onClick={nodeTest3}>서버 연결</button>

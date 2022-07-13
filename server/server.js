@@ -27,30 +27,26 @@ app.get('/', (req, res) => {
     res.send("server page");
 })
 
-app.get('/api/dataSample', (req, res) => {
-    res.set("Content-Type","text/xml");
-    res.send(
-        '<View>\n'+
-        '   <Image name="image" value="$image" />\n'+
-        '</View>'
-    );
-})
+// app.get('/api/dataSample', (req, res) => {
+//     res.set("Content-Type","text/xml");
+//     res.send(
+//         '<View>\n'+
+//         '   <Image name="image" value="$image" />\n'+
+//         '</View>'
+//     );
+// })
 
+// app.post('/api/dataHtml', (req, res) => {
+//     html.concat(req.body);
+//     res.set("Content-Type","text/xml");
+//     res.send(req.body);
+// })
 
-let html = [];
-
-
-app.post('/api/dataHtml', (req, res) => {
-    html.concat(req.body);
-    res.set("Content-Type","text/xml");
-    res.send(req.body);
-})
-
-app.post('/api/dataProperty', (req, res) => {
-    html.concat(req.body);
-    res.set("Content-Type","text/csv");
-    res.send(req.body);
-})
+// app.post('/api/dataProperty', (req, res) => {
+//     html.concat(req.body);
+//     res.set("Content-Type","text/csv");
+//     res.send(req.body);
+// })
 
 app.listen(PORT, () => {
     console.log(`Server On : http://localhost:${PORT}/`);

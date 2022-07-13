@@ -93,13 +93,6 @@ class Labeling extends Component {
   }
   
   saveFile = () => {
-    // for(let name of this.state.labeling.labelingName) {
-    //   if(name === this.state.labeling.labelingName) {
-    //     let answer = window.confirm(`${name}이(가) 이미 있습니다.\n바꾸시겠습니까?`);
-    //     if(answer === false) return;
-    //   }
-    // }
-
     let fileName = `${mnode.PATH}/${this.state.labeling.at(-1).labelingName}.xml`;
 
     const config = {
@@ -432,7 +425,7 @@ class Labeling extends Component {
                                 name="html" 
                                 defaultValue={this.state.html}
                                 disabled
-                                onChange={this.onValChange}
+                                // onChange={this.onValChange}
                             />
                         </Grid>
                     </Grid>
