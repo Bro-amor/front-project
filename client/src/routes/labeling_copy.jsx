@@ -105,9 +105,10 @@ function Labeling_copy(props) {
     setRegBack(regexp1.test(background));
     return regexp1.test(back);
   }
-  const regLabelChk = () => {
+  const regLabelChk = (lab) => {
     const regexp1 = new RegExp(/^[a-zA-Z0-9_-]{1,20}$/);
     setRegLabel(regexp1.test(labelingName));
+    return regexp1.test(lab);
   }
 
   const onSubmit = () => {
@@ -153,7 +154,8 @@ function Labeling_copy(props) {
   }, [property]);
 
   const onLabelingSubmit = () => {
-    regLabelChk();
+    const temp_regLab = regLabelChk(labelingName);
+    // regLabelChk();
     if(labelingName == "") {
       alert("Labeling 이름을 입력해주세요.");
     }
@@ -167,7 +169,7 @@ function Labeling_copy(props) {
     if(existResult) {
       alert("이미 존재하는 Labeling 이름 입니다.")
     }
-    if(labelingName != "" && regLabel && template > -1 && property.length > 0 && existResult != true) {
+    if(labelingName != "" && temp_regLab && template > -1 && property.length > 0 && existResult != true) {
 
       const temp_data = {
         labelingName: labelingName,
