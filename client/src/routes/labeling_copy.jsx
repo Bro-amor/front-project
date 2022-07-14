@@ -95,13 +95,15 @@ function Labeling_copy(props) {
     }
   }
 
-  const regValChk = () => {
+  const regValChk = (val) => {
     const regexp1 = new RegExp(/^[a-zA-Z0-9]{1,20}$/);
     setRegVal(regexp1.test(value));
+    return regexp1.test(val);
   }
-  const regBackChk = () => {
+  const regBackChk = (back) => {
     const regexp1 = new RegExp(/^[0-9]{6}$/);
     setRegBack(regexp1.test(background));
+    return regexp1.test(back);
   }
   const regLabelChk = () => {
     const regexp1 = new RegExp(/^[a-zA-Z0-9_-]{1,20}$/);
@@ -109,15 +111,18 @@ function Labeling_copy(props) {
   }
 
   const onSubmit = () => {
-    regValChk();
-    regBackChk();
+    const temp_regVal = regValChk(value);
+    // setRegVal(temp_regVal);
+    const temp_regBack = regBackChk(background);
+    // setRegVal(temp_regBack);
+    console.log(regVal);
     if(value == "" || background == "") {
       alert("value, background 를 모두 입력해주세요.");
     }
     if(selected != -1) {
       alert("CANCLE 버튼을 눌러 선택을 취소하고 생성해주세요.");
     }
-    if(selected == -1 && regVal && regBack) {
+    if(selected == -1 && temp_regVal && temp_regBack) {
       const temp_property = property.at(-1);
       let id = 0;
 
@@ -133,9 +138,13 @@ function Labeling_copy(props) {
 
       setValue("");
       setBackground("");
-      setProperty(property.concat(temp_data));
-      setRegVal(null);
-      setRegBack(null);
+      // setProperty(property.concat(temp_data));
+      setProperty((prevState) => [
+        ...prevState,
+        temp_data
+      ]);
+      // setRegVal(null);
+      // setRegBack(null);
       sethtml(html);
     }
   }
@@ -240,7 +249,7 @@ function Labeling_copy(props) {
     let value = [];
     let backgroud = [];
 
-    setProperty(property);
+    // setProperty(property);
 
     property.forEach(element => {
         value = value.concat(element.value);
